@@ -39,6 +39,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :test do
-	# gem 'capybara'
+	gem 'capybara'
 	gem 'rspec-rails'
 end
