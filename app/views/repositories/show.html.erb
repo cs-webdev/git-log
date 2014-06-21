@@ -2,6 +2,6 @@
 <ul>
 	<% @logs.each do | log |  %>
 
-	<li><%= link_to log.message, log.sha %></li>
+	<li><%= link_to log.message, repository_commit_path(@repo,log.sha) %></li>
 	<% end %>
 </ul>

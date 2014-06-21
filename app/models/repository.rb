@@ -1,5 +1,17 @@
 class Repository < ActiveRecord::Base
+
+
 	def logs
-		Git.open(working_dir, :log => Logger.new(STDOUT)).log
+		repo.log
 	end
+
+	def commit(sha)
+		repo.gcommit(sha)
+	end
+
+	private
+	def repo
+		@_repo ||= Git.open(working_dir, :log => Logger.new(STDOUT))
+	end
+
 end

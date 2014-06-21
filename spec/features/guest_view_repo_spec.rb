@@ -1,8 +1,8 @@
 require "rails_helper"
 
-feature 'Guest view repos' do
-	scenario '' do
-		Repository.create(:working_dir => "git-log")
+feature 'Guest views repos' do
+	scenario 'from the home page' do
+		Repository.create(:working_dir => "~/rails_project/git-log")
 		
 		visit root_path
 

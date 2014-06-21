@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'repositories#index'
 
-  resources :repositories
+  resources :repositories do 
+    resources :commits
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
