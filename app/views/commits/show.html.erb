@@ -1,3 +1,9 @@
 <h1>Commit </h1>
 
 <%= @commit.message %>
+
+<ul>
+  <% @other_commits.each do |log| %>
+    <li><%= log.message %></li>
+  <% end %>
+</ul>
