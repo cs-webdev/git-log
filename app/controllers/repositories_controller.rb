@@ -5,8 +5,8 @@ class RepositoriesController < ApplicationController
 	end
 
 	def show
-		repo = Repository.find params[:id]
-		@logs = Git.open(repo.working_dir, :log => Logger.new(STDOUT)).log
+		@repo = Repository.find params[:id]
+		@logs = @repo.logs
 	end
 
 	

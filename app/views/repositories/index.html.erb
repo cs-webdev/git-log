@@ -1,7 +1,8 @@
+<h1>Repositories</h1>
 <ul>
 	<% @repos.each do |repo| %>
 		<li>
-			<%= repo.working_dir %>
+			<%= link_to repo.working_dir, repo %>
 		</li>
 	<% end %>
 	
