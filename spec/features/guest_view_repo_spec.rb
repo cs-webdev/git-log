@@ -1,5 +1,4 @@
 require "rails_helper"
-require "spec_helper"
 
 feature 'Guest view repos' do
 	scenario '' do
