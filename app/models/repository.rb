@@ -1,6 +1,5 @@
 class Repository < ActiveRecord::Base
 
-
 	def logs
 		repo.log
 	end
@@ -11,13 +10,10 @@ class Repository < ActiveRecord::Base
 
   def other_commits(commit)
     @other_logs = []
-    @a = commit.sha
-    self.logs.each do |log|
-      if log.sha != commit.sha
-        @other_logs << log
-      end
+    logs.each do |log|
+      @other_logs << log if log.sha != commit.sha
     end
-    return @other_logs
+    @other_logs
   end
 
 	private
