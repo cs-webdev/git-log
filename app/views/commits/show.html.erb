@@ -1,9 +1,28 @@
-<h1>Commit </h1>
+<h1><%= @commit.message %> </h1>
 
-<%= @commit.message %>
+Author: <%= @commit.author.name %><br/>
+
+<% if @commit.parents.size > 0 %>
+<%= @commit.parents.size %> parent <%= link_to @commit.parent.sha, repository_commit_path(@repo,@commit.parent.sha)  %><br />
+<% end %>
+
+Commit: <%= @commit.sha %><br/>
+
+<% if @stats %>
+
+
+Showing <%= @stats[:total][:files] %> changed file with <%= @stats[:total][:insertions] %> additions and <%= @stats[:total][:deletions] %> deletions. Show diff stats
+
+
+<ul>
+  <% @stats[:files].each do |file| %>
+  <li><%= file[0] %> +<%= file[1][:insertions] %> -<%= file[1][:deletions] %></li>
+  <% end %>
+</ul>
+<% end %>
 
 <ul>
   <% @other_commits.each do |log| %>
-    <li><%= log.message %></li>
+    <li><%= log.message %> <%= link_to "diff", repository_commit_diff_path(@repo,@commit.sha,log.sha) %></li>
   <% end %>
 </ul>

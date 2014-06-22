@@ -8,6 +8,14 @@ class Repository < ActiveRecord::Base
 		repo.gcommit(sha)
 	end
 
+  def diff(commit)
+    repo.diff(commit)
+  end
+
+  def diff_commits(commit1, commit2)
+    repo.diff(commit1, commit2)
+  end
+
   def other_commits(commit)
     @other_logs = []
     logs.each do |log|

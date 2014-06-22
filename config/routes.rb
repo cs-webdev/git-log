@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'repositories#index'
 
   resources :repositories do 
-    resources :commits
+    resources :commits do
+      resources :diff
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
