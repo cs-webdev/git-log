@@ -4,6 +4,10 @@ class Repository < ActiveRecord::Base
 		repo.log
 	end
 
+  def branches
+    repo.branches.local
+  end
+
 	def commit(sha)
 		repo.gcommit(sha)
 	end

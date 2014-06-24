@@ -5,3 +5,10 @@
 	<li><%= link_to log.message, repository_commit_path(@repo,log.sha) %></li>
 	<% end %>
 </ul>
+
+<ul>
+  <% @branches.each do | branch |  %>
+
+  <li><%= branch.full %></li>
+  <% end %>
+</ul>
