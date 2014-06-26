@@ -1,9 +1,13 @@
 class DiffController < ApplicationController
+  before_filter :get_repo
+
+  def get_repo
+    @repo = Repository.find(params[:repository_id])
+  end
+
   def show
-    @repo = Repository.find( params[:repository_id] )
-    @commit1  = @repo.commit(params[:commit_id])
-    @commit2  = @repo.commit(params[:id])
-    @diff = @repo.diff(@commit1, @commit2)
-    
+
+    @sha  = params[:commit_id]
+    @diff = @repo.diff_commits(params[:commit_id], params[:id])
   end
 end

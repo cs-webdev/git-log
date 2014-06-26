@@ -10,9 +10,7 @@ Commit: <%= @commit.sha %><br/>
 
 <% if @stats %>
 
-
 Showing <%= @stats[:total][:files] %> changed file with <%= @stats[:total][:insertions] %> additions and <%= @stats[:total][:deletions] %> deletions. Show diff stats
-
 
 <ul>
   <% @stats[:files].each do |file| %>
@@ -20,6 +18,7 @@ Showing <%= @stats[:total][:files] %> changed file with <%= @stats[:total][:inse
   <% end %>
 </ul>
 <% end %>
+
 
 <ul>
   <% @other_commits.each do |log| %>

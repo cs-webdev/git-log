@@ -1,3 +1,4 @@
-<h1></h1>
+<%= content_tag('pre',@diff.patch) %>
 
-<%= @diff.stats %>
+
+<%= link_to "Back", repository_commit_path(@repo,@sha) %>
