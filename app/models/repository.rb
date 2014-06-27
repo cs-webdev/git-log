@@ -8,18 +8,18 @@ class Repository < ActiveRecord::Base
 		repo.gcommit(sha)
 	end
 
-  def diff(commit)
-    repo.diff(commit)
+  def diff(sha)
+    repo.diff(repo.gcommit(sha))
   end
 
-  def diff_commits(commit1, commit2)
-    repo.diff(commit1, commit2)
+  def diff_commits(sha1, sha2)
+    repo.diff(repo.gcommit(sha1), repo.gcommit(sha2))
   end
 
-  def other_commits(commit)
+  def other_commits(sha)
     @other_logs = []
     logs.each do |log|
-      @other_logs << log if log.sha != commit.sha
+      @other_logs << log if log.sha != sha
     end
     @other_logs
   end
