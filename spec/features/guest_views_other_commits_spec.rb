@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature 'Guest views other commits' do
   scenario 'from the commit page' do
-    repo = Repository.create(:working_dir => "~/rails_project/git-log")
+    repo = Repository.create(working_dir: "~/rails_project/git-log")
     Repository.stub(:find).and_return(repo)
     repo.stub(:commit).and_return(stubbed_commit)
     repo.stub(:other_commits).and_return(stubbed_other_commits)
@@ -15,7 +15,7 @@ feature 'Guest views other commits' do
 end
 
 def stubbed_commit
-  @stubbed_commit ||= double("Commit", sha: "fea3aea", message: "This is a commit")
+  @stubbed_commit ||= double("CommitLog", sha: "fea3aea", message: "This is a commit", parents:[], author: double("AuthorLog", name:'John'))
 end
 
 def stubbed_other_commits
