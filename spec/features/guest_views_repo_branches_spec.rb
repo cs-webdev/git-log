@@ -2,10 +2,11 @@ require "rails_helper"
 
 feature 'Guest views log branches' do
 	scenario 'from the repository page' do
-		repo = Repository.create(:working_dir => "~/rails_project/git-log")
+		repo = Repository.create(working_dir: "~/rails_project/git-log")
+		Repository.stub(:find).and_return(repo)
 		repo.stub(:logs).and_return(stubbed_logs)
 		repo.stub(:branches).and_return(stubbed_branches)
-		Repository.stub(:find).and_return(repo)
+
 
 		visit repository_path(repo)
 
@@ -23,6 +24,6 @@ end
 
 def stubbed_branches
 	[
-		double("BranchEntry", full: 'Master')
+		double("BranchEntry", name: 'Master')
 	]
 end

@@ -9,6 +9,6 @@
 <ul>
   <% @branches.each do | branch |  %>
 
-  <li><%= branch.full %></li>
+  <li><%= link_to branch.name, repository_branch_path(@repo,branch) %></li>
   <% end %>
 </ul>
