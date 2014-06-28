@@ -8,9 +8,17 @@ class Repository < ActiveRecord::Base
     repo.branches.local
   end
 
+  def get_branch(branch)
+    repo.branches[branch]
+  end
+
 	def commit(sha)
 		repo.gcommit(sha)
 	end
+
+  def branch_commits(branch)
+    repo.log.object(branch)
+  end
 
   def diff(sha)
     repo.diff(repo.gcommit(sha))
