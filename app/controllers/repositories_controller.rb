@@ -7,7 +7,8 @@ class RepositoriesController < ApplicationController
 	def show
 		@repo = Repository.find params[:id]
 		@logs = @repo.logs
+    @branches = @repo.branches
 	end
 
-	
+
 end
