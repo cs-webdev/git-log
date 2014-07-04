@@ -7,8 +7,8 @@ feature "Guest views diff commits" do
     repo.stub(:diff_commits).and_return(stubbed_commit)
 
     visit repository_commit_diff_path(repo,
-      stubbed_commit.to,
-      stubbed_commit.from)
+                                      stubbed_commit.to,
+                                      stubbed_commit.from)
 
     expect(page).to have_text "This is a diff commits"
   end
@@ -16,7 +16,7 @@ end
 
 def stubbed_commit
   @stubbed_commit ||= double("CommitLog",
-    to: "fea3aea",
-    from: "erd4fog",
-    patch: "This is a diff commits")
+                              to: "fea3aea",
+                              from: "erd4fog",
+                              patch: "This is a diff commits")
 end
