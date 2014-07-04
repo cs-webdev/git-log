@@ -1,8 +1,8 @@
 class RepositoriesController < ApplicationController
 
-	def index
-		@repos = Repository.all
-	end
+  def index
+    @repos = Repository.all
+  end
 
   def new
     @repo = Repository.new
@@ -22,13 +22,14 @@ class RepositoriesController < ApplicationController
     end
   end
 
-	def show
-		@repo = Repository.find params[:id]
-		@logs = @repo.logs
+  def show
+    @repo = Repository.find params[:id]
+    @logs = @repo.logs
     @branches = @repo.branches
-	end
+  end
 
   private
+
   def repo_params
     params.require(:repository).permit(:working_dir, :name)
   end
