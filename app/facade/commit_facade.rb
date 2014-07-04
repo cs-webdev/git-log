@@ -17,6 +17,6 @@ class CommitFacade
   end
 
   def stats
-    @stats = @commit.diff_parent.stats if( @commit.parents.size > 0)
+    @stats = @commit.diff_parent.stats if (@commit.parents.size > 0)
   end
 end
