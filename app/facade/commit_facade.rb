@@ -2,7 +2,7 @@
 class CommitFacade
   attr_reader :repository, :id
 
-  def initialize (repository, id)
+  def initialize(repository, id)
     @repository = repository
     @id = id
     @commit = @repository.commit(@id)
