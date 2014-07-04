@@ -2,10 +2,10 @@
 class CommitFacade
   attr_reader :repository, :id
 
-  def initialize( repository, id )
+  def initialize(repository, id)
     @repository = repository
     @id = id
-    @commit = @repository.commit( @id )
+    @commit = @repository.commit(@id)
   end
 
   def details
@@ -13,7 +13,7 @@ class CommitFacade
   end
 
   def other_commits
-    @other_commits = @repository.other_commits( @commit.sha )
+    @other_commits = @repository.other_commits(@commit.sha)
   end
 
   def stats
