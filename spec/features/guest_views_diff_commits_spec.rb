@@ -16,7 +16,7 @@ end
 
 def stubbed_commit
   @stubbed_commit ||= double("CommitLog",
-                              to: "fea3aea",
-                              from: "erd4fog",
-                              patch: "This is a diff commits")
+                             to: "fea3aea",
+                             from: "erd4fog",
+                             patch: "This is a diff commits")
 end
