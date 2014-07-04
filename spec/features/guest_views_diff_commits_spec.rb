@@ -6,7 +6,9 @@ feature "Guest views diff commits" do
     Repository.stub(:find).and_return(repo)
     repo.stub(:diff_commits).and_return(stubbed_commit)
 
-    visit repository_commit_diff_path(repo, stubbed_commit.to, stubbed_commit.from)
+    visit repository_commit_diff_path(repo,
+      stubbed_commit.to,
+      stubbed_commit.from)
 
     expect(page).to have_text "This is a diff commits"
   end
