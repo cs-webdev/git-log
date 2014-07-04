@@ -1,9 +1,12 @@
 <h1>Repositories</h1>
+
+<a <%= link_to "Add new repository", new_repository_path %>
+
 <ul>
 	<% @repos.each do |repo| %>
 		<li>
-			<%= link_to repo.working_dir, repo %>
+			<%= link_to repo.name, repo %> <%= link_to "Edit", edit_repository_path(repo) %>
 		</li>
 	<% end %>
-	
+
 </ul>

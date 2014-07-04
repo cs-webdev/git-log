@@ -6,7 +6,6 @@ class DiffController < ApplicationController
   end
 
   def show
-
     @sha  = params[:commit_id]
     @diff = @repo.diff_commits(params[:commit_id], params[:id])
   end
