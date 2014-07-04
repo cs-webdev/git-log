@@ -1,8 +1,8 @@
 require "rails_helper"
 
-feature 'Guest views log commits' do
-	scenario 'from the repository page' do
-		repo = Repository.create(:working_dir => "~/rails_project/git-log")
+feature "Guest views log commits" do
+	scenario "from the repository page" do
+		repo = Repository.create(working_dir: "~/rails_project/git-log")
 		repo.stub(:logs).and_return(stubbed_logs)
 		Repository.stub(:find).and_return(repo)
 
@@ -16,6 +16,6 @@ end
 
 def stubbed_logs
 	[
-		double("LogEntry", message: 'This is a log message', sha: 'baderous')
+		double("LogEntry", message: "This is a log message", sha: "baderous")
 	]
 end
