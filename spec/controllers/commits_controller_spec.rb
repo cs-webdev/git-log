@@ -12,7 +12,7 @@ describe CommitsController do
 end
 
 def stubbed_commit
-  @stubbed_commit ||= double("Commit", 
-                             sha: "fea3aea", 
+  @stubbed_commit ||= double("Commit",
+                             sha: "fea3aea",
                              message: "This is a commit")
 end
