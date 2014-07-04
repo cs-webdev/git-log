@@ -41,6 +41,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chartkick (1.3.1)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -50,6 +51,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     debug_inspector (0.0.2)
+    decent_exposure (2.3.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.0)
@@ -163,8 +165,13 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara
+  chartkick
   coffee-rails (~> 4.0.0)
+<<<<<<< HEAD
   foundation-rails
+=======
+  decent_exposure
+>>>>>>> TestControllers + Refactor + GemChartKick
   git
   jbuilder (~> 2.0)
   jquery-rails

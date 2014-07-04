@@ -36,10 +36,6 @@
     </ul>
   </div>
   <div class="content" id="panel2-4">
-    <p>Fourth panel content goes here...</p>
+    <p><%= pie_chart ({"Insertions" => @stats[:total][:insertions], "Deletions" => @stats[:total][:deletions] }) %></p>
   </div>
 </div>
-
-
-
-
