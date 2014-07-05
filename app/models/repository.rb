@@ -42,7 +42,7 @@ class Repository < ActiveRecord::Base
       authors << l.author.name
     end
 
-    authors.group_by(&:capitalize).map{ |k, v| [k, v.length] }
+    authors.group_by(&:capitalize).map { |k, v| [k, v.length] }
   end
 
   def group_by_day
@@ -51,12 +51,12 @@ class Repository < ActiveRecord::Base
       dates << l.date.strftime("%d-%m-%y")
     end
 
-    dates.group_by(&:capitalize).map{ |k, v| [k, v.length] }
+    dates.group_by(&:capitalize).map { |k, v| [k, v.length] }
   end
 
   private
   def repo
-    @_repo ||= Git.open(working_dir, :log => Logger.new(STDOUT))
+    @_repo ||= Git.open(working_dir, log: Logger.new(STDOUT))
   end
 
 end
