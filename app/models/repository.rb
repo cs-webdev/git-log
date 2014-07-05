@@ -37,12 +37,11 @@ class Repository < ActiveRecord::Base
   end
 
   def group_by_authors
-    authors = []
-    repo.log.each do |l|
-      authors << l.author.name
+    repo.log.each_with_object({}) do |commit, authors|
+        author_name = commit.author.name.capitalize
+        authors[author_name] ||= 0
+        authors[author_name] += 1
     end
-
-    authors.group_by(&:capitalize).map { |k, v| [k, v.length] }
   end
 
   def group_by_day

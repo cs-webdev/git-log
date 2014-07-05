@@ -40,11 +40,12 @@ class RepositoriesController < ApplicationController
     @repo = Repository.find params[:id]
     @logs = @repo.logs
     @branches = @repo.branches
-    @stats_by_author = @repo.group_by_day
+    @stats_by_day = @repo.group_by_day
+    @stats_by_author = @repo.group_by_authors
 	end
 
   private
-  
+
   def repo_params
     params.require(:repository).permit(:working_dir, :name)
   end

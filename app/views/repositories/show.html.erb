@@ -20,7 +20,8 @@
     </ul>
   </div>
 
-  <div class="content" id="panel2-3">
-    <%= column_chart @stats_by_author %>
+  <div class="content" id="graphics">
+    <%= column_chart @stats_by_day %>
+    <%= pie_chart @stats_by_author %>
   </div>
 </div>
