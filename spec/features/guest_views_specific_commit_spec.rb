@@ -10,8 +10,8 @@ feature "Guest views specific commit" do
 
     expect(page).to have_text "This is a commit"
   end
-end
 
-def stubbed_commit
-  @stubbed_commit ||= double("CommitLog", sha: "fea3aea", message: "This is a commit", parents:[], author: double("AuthorLog", name:"John"))
+  def stubbed_commit
+    @stubbed_commit ||= double("CommitLog", sha: "fea3aea", message: "This is a commit", parents:[], author: double("AuthorLog", name:"John"))
+  end
 end

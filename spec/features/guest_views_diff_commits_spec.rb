@@ -12,11 +12,11 @@ feature "Guest views diff commits" do
 
     expect(page).to have_text "This is a diff commits"
   end
-end
 
-def stubbed_commit
-  @stubbed_commit ||= double("CommitLog",
-                             to: "fea3aea",
-                             from: "erd4fog",
-                             patch: "This is a diff commits")
+  def stubbed_commit
+    @stubbed_commit ||= double("CommitLog",
+                               to: "fea3aea",
+                               from: "erd4fog",
+                               patch: "This is a diff commits")
+  end
 end

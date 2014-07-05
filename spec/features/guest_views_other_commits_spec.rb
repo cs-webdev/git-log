@@ -12,14 +12,14 @@ feature "Guest views other commits" do
     expect(page).to have_text "This is other commit"
 
   end
-end
 
-def stubbed_commit
-  @stubbed_commit ||= double("CommitLog", sha: "fea3aea", message: "This is a commit", parents:[], author: double("AuthorLog", name:"John"))
-end
+  def stubbed_commit
+    @stubbed_commit ||= double("CommitLog", sha: "fea3aea", message: "This is a commit", parents:[], author: double("AuthorLog", name:"John"))
+  end
 
-def stubbed_other_commits
-  [
-    @stubbed_other_commits ||= double("Other Commit", sha: "tea4aeb", message: "This is other commit")
-  ]
+  def stubbed_other_commits
+    [
+      @stubbed_other_commits ||= double("Other Commit", sha: "tea4aeb", message: "This is other commit")
+    ]
+  end
 end
