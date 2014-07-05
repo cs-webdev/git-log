@@ -4,6 +4,6 @@ class CommitsController < ApplicationController
 
   def show
     @commit = CommitFacade.new repository, params[:id]
-	end
+  end
 
 end

@@ -44,7 +44,7 @@ class RepositoriesController < ApplicationController
 	end
 
   private
-
+  
   def repo_params
     params.require(:repository).permit(:working_dir, :name)
   end

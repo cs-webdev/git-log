@@ -1,8 +1,8 @@
 class Repository < ActiveRecord::Base
 
-	def logs
-		repo.log
-	end
+  def logs
+    repo.log
+  end
 
   def branches
     repo.branches.local
@@ -12,9 +12,9 @@ class Repository < ActiveRecord::Base
     repo.branches[branch]
   end
 
-	def commit(sha)
-		repo.gcommit(sha)
-	end
+  def commit(sha)
+    repo.gcommit(sha)
+  end
 
   def branch_commits(branch)
     repo.log.object(branch)
@@ -37,13 +37,12 @@ class Repository < ActiveRecord::Base
   end
 
   def group_by_authors
-
     authors = []
     repo.log.each do |l|
       authors << l.author.name
     end
-    
-    authors.group_by(&:capitalize).map {|k,v| [k, v.length]}
+
+    authors.group_by(&:capitalize).map{ |k, v| [k, v.length] }
   end
 
   def group_by_day
@@ -52,12 +51,12 @@ class Repository < ActiveRecord::Base
       dates << l.date.strftime("%d-%m-%y")
     end
 
-    dates.group_by(&:capitalize).map {|k,v| [k, v.length]}
+    dates.group_by(&:capitalize).map{ |k, v| [k, v.length] }
   end
 
-	private
-	def repo
-		@_repo ||= Git.open(working_dir, :log => Logger.new(STDOUT))
-	end
+  private
+  def repo
+    @_repo ||= Git.open(working_dir, :log => Logger.new(STDOUT))
+  end
 
 end
