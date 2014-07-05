@@ -38,9 +38,9 @@ class Repository < ActiveRecord::Base
 
   def group_by_authors
     repo.log.each_with_object({}) do |commit, authors|
-        author_name = commit.author.name.capitalize
-        authors[author_name] ||= 0
-        authors[author_name] += 1
+      author_name = commit.author.name.capitalize
+      authors[author_name] ||= 0
+      authors[author_name] += 1
     end
   end
 
