@@ -27,10 +27,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'git'
+gem 'decent_exposure'
 
 gem 'foundation-rails'
 gem 'rails_layout'
 
+gem 'chartkick'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

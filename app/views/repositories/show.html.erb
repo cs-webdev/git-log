@@ -12,3 +12,5 @@
   <li><%= link_to branch.name, repository_branch_path(@repo,branch) %></li>
   <% end %>
 </ul>
+
+<%= column_chart @stats_by_author %>
