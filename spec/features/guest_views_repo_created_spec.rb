@@ -1,8 +1,8 @@
 require "rails_helper"
 
-feature "Guest views log commits" do
+feature "Guest views repo created commits" do
   scenario "from the repository page" do
-    repo = Repository.create(working_dir: "~/rails_project/git-log")
+    repo = Repository.create(working_dir: "~/rails_project/git-log", name: "Git-Log")
     repo.stub(:logs).and_return(stubbed_logs)
     Repository.stub(:find).and_return(repo)
 

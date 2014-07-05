@@ -1,4 +1,4 @@
-class DiffController < ApplicationController
+class DiffsController < ApplicationController
   before_filter :get_repo
 
   def get_repo
@@ -6,7 +6,6 @@ class DiffController < ApplicationController
   end
 
   def show
-
     @sha  = params[:commit_id]
     @diff = @repo.diff_commits(params[:commit_id], params[:id])
   end

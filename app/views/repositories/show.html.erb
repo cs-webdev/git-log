@@ -1,8 +1,8 @@
-<h1> Commits of <%= @repo.working_dir %></h1>
+<h1> Commits of <%= @repo.name %></h1>
 <ul>
 	<% @logs.each do | log |  %>
 
-	<li><%= link_to log.message, repository_commit_path(@repo,log.sha) %></li>
+	<li><%= link_to log.message, repository_commit_path(@repo,log.sha) %> </li>
 	<% end %>
 </ul>
 

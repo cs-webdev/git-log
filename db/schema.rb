@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620192537) do
+ActiveRecord::Schema.define(version: 20140704184249) do
 
   create_table "repositories", force: true do |t|
     t.string "working_dir"
+    t.string "name"
   end
 
 end

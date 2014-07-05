@@ -28,6 +28,9 @@ gem 'spring',        group: :development
 
 gem 'git'
 
+gem 'foundation-rails'
+gem 'rails_layout'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -48,6 +51,6 @@ group :development do
 end
 
 group :test do
-	gem 'capybara'
-	gem 'rspec-rails'
+  gem 'capybara'
+  gem 'rspec-rails'
 end
