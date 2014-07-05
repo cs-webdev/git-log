@@ -1,16 +1,27 @@
 <h1> Commits of <%= @repo.name %></h1>
-<ul>
-	<% @logs.each do | log |  %>
-
-	<li><%= link_to log.message, repository_commit_path(@repo,log.sha) %> </li>
-	<% end %>
+<ul class="tabs" data-tab>
+  <li class="tab-title active"><a href="#commits">Commits</a></li>
+  <li class="tab-title"><a href="#branches">Branches</a></li>
+  <li class="tab-title"><a href="#graphics">Graphics</a></li>
 </ul>
+<div class="tabs-content">
+  <div class="content active" id="commits">
+    <ul>
+      <% @logs.each do | log |  %>
 
-<ul>
-  <% @branches.each do | branch |  %>
+      <li><%= link_to log.message, repository_commit_path(@repo,log.sha) %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="content" id="branches">
+     <% @branches.each do | branch |  %>
+      <li><%= link_to branch.name, repository_branch_path(@repo,branch) %></li>
+      <% end %>
+    </ul>
+  </div>
 
-  <li><%= link_to branch.name, repository_branch_path(@repo,branch) %></li>
-  <% end %>
-</ul>
-
-<%= column_chart @stats_by_author %>
+  <div class="content" id="graphics">
+    <%= column_chart @stats_by_day %>
+    <%= pie_chart @stats_by_author %>
+  </div>
+</div>
