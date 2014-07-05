@@ -31,7 +31,7 @@
   <div class="content" id="panel2-3">
     <ul>
       <% @commit.other_commits.each do |log| %>
-        <li><%= log.message %> <%= link_to "diff", repository_commit_diff_path(repository,@commit.detials.sha,log.sha) %></li>
+        <li><%= log.message %> <%= link_to "diff", repository_commit_diff_path(repository,@commit.details.sha,log.sha) %></li>
       <% end %>
     </ul>
   </div>
@@ -39,3 +39,4 @@
     <p><%= pie_chart ({"Insertions" => @commit.stats[:total][:insertions], "Deletions" => @commit.stats[:total][:deletions] }) %></p>
   </div>
 </div>
+
