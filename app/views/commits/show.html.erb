@@ -1,10 +1,10 @@
 <h1><%= @commit.details.message %> </h1>
 <%= render 'breadcrumbs' %>
 <ul class="tabs" data-tab>
-  <li class="tab-title active"><a href="details">Details</a></li>
-  <% if @commit.stats %><li class="tab-title"><a href="stats">Stats</a></li><% end %>
-  <% if @commit.other_commits %><li class="tab-title"><a href="diff">Diff</a></li><% end %>
-  <li class="tab-title"><a href="graphics">Graphics</a></li>
+  <li class="tab-title active"><a href="#details">Details</a></li>
+  <% if @commit.stats %><li class="tab-title"><a href="#stats">Stats</a></li><% end %>
+  <% if @commit.other_commits %><li class="tab-title"><a href="#diff">Diff</a></li><% end %>
+  <li class="tab-title"><a href="#graphics">Graphics</a></li>
 </ul>
 <div class="tabs-content">
   <div class="content active" id="details">
@@ -18,11 +18,11 @@
   </div>
   <div class="content" id="stats">
     <% if @commit.stats %>
-    Showing <%= @commit.stats[:total][:files] %> changed file with <%= @commit.stats[:total][:insertions] %> additions and <%= @commit.stats[:total][:deletions] %> deletions. Show diff stats
+    Showing <%= @commit.stats[:total][:files] %> changed file with <%= @commit.stats[:total][:insertions] %> additions and <%= @commit.stats[:total][:deletions] %> deletions.
 
     <ul>
       <% @commit.stats[:files].each do |file| %>
-      <li><%= file[0] %> +<%= file[1][:insertions] %> -<%= file[1][:deletions] %></li>
+      <li><%= file[0] %> <span class="green">+<%= file[1][:insertions] %></span> <span class="red">-<%= file[1][:deletions] %></span></li>
       <% end %>
     </ul>
     <% end %>

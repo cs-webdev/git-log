@@ -14,3 +14,17 @@
  *= require_self
  */
 
+ nav {
+  margin-bottom: 5px;
+ }
+
+ span {
+  &.red {
+    color: red;
+  }
+
+  &.green {
+    color: green;
+  }
+ }
+
