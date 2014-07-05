@@ -1,13 +1,13 @@
 <h1><%= @commit.details.message %> </h1>
-
+<%= render 'breadcrumbs' %>
 <ul class="tabs" data-tab>
-  <li class="tab-title active"><a href="#panel2-1">Details</a></li>
-  <% if @commit.stats %><li class="tab-title"><a href="#panel2-2">Stats</a></li><% end %>
-  <% if @commit.other_commits %><li class="tab-title"><a href="#panel2-3">Diff</a></li><% end %>
-  <li class="tab-title"><a href="#panel2-4">Graphs</a></li>
+  <li class="tab-title active"><a href="details">Details</a></li>
+  <% if @commit.stats %><li class="tab-title"><a href="stats">Stats</a></li><% end %>
+  <% if @commit.other_commits %><li class="tab-title"><a href="diff">Diff</a></li><% end %>
+  <li class="tab-title"><a href="graphics">Graphics</a></li>
 </ul>
 <div class="tabs-content">
-  <div class="content active" id="panel2-1">
+  <div class="content active" id="details">
     Author: <%= @commit.details.author.name %><br/>
 
     <% if @commit.details.parents.size > 0 %>
@@ -16,7 +16,7 @@
 
     Commit: <%= @commit.details.sha %><br/>
   </div>
-  <div class="content" id="panel2-2">
+  <div class="content" id="stats">
     <% if @commit.stats %>
     Showing <%= @commit.stats[:total][:files] %> changed file with <%= @commit.stats[:total][:insertions] %> additions and <%= @commit.stats[:total][:deletions] %> deletions. Show diff stats
 
@@ -27,15 +27,15 @@
     </ul>
     <% end %>
   </div>
-  
-  <div class="content" id="panel2-3">
+
+  <div class="content" id="diff">
     <ul>
       <% @commit.other_commits.each do |log| %>
         <li><%= log.message %> <%= link_to "diff", repository_commit_diff_path(repository,@commit.details.sha,log.sha) %></li>
       <% end %>
     </ul>
   </div>
-  <div class="content" id="panel2-4">
+  <div class="content" id="graphics">
     <% if @commit.stats %>
       <p><%= pie_chart ({"Insertions" => @commit.stats[:total][:insertions], "Deletions" => @commit.stats[:total][:deletions] }) %></p>
      <% end %>
