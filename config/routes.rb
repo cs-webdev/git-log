@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :repositories do
     resources :commits do
-      resources :diff
+      resources :diffs
     end
 
     resources :branches

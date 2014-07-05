@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Guest views diff commits" do
   scenario "from the diff page" do
-    repo = Repository.create(working_dir: "~/rails_project/git-log")
+    repo = Repository.create(name:"Git-log", working_dir: "~/rails_project/git-log")
     Repository.stub(:find).and_return(repo)
     repo.stub(:diff_commits).and_return(stubbed_commit)
 
