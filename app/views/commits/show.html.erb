@@ -1,45 +1,44 @@
-<h1><%= @commit.message %> </h1>
+<h1><%= @commit.details.message %> </h1>
 
 <ul class="tabs" data-tab>
   <li class="tab-title active"><a href="#panel2-1">Details</a></li>
-  <% if @stats %><li class="tab-title"><a href="#panel2-2">Stats</a></li><% end %>
-  <% if @other_commits %><li class="tab-title"><a href="#panel2-3">Diff</a></li><% end %>
+  <% if @commit.stats %><li class="tab-title"><a href="#panel2-2">Stats</a></li><% end %>
+  <% if @commit.other_commits %><li class="tab-title"><a href="#panel2-3">Diff</a></li><% end %>
   <li class="tab-title"><a href="#panel2-4">Graphs</a></li>
 </ul>
 <div class="tabs-content">
   <div class="content active" id="panel2-1">
-    Author: <%= @commit.author.name %><br/>
+    Author: <%= @commit.details.author.name %><br/>
 
-    <% if @commit.parents.size > 0 %>
-    <%= @commit.parents.size %> parent <%= link_to @commit.parent.sha, repository_commit_path(@repo,@commit.parent.sha)  %><br />
+    <% if @commit.details.parents.size > 0 %>
+    <%= @commit.details.parents.size %> parent <%= link_to @commit.details.parent.sha, repository_commit_path(repository,@commit.details.parent.sha)  %><br />
     <% end %>
 
-    Commit: <%= @commit.sha %><br/>
+    Commit: <%= @commit.details.sha %><br/>
   </div>
   <div class="content" id="panel2-2">
-    <% if @stats %>
-
-    Showing <%= @stats[:total][:files] %> changed file with <%= @stats[:total][:insertions] %> additions and <%= @stats[:total][:deletions] %> deletions. Show diff stats
+    <% if @commit.stats %>
+    Showing <%= @commit.stats[:total][:files] %> changed file with <%= @commit.stats[:total][:insertions] %> additions and <%= @commit.stats[:total][:deletions] %> deletions. Show diff stats
 
     <ul>
-      <% @stats[:files].each do |file| %>
+      <% @commit.stats[:files].each do |file| %>
       <li><%= file[0] %> +<%= file[1][:insertions] %> -<%= file[1][:deletions] %></li>
       <% end %>
     </ul>
     <% end %>
   </div>
+  
   <div class="content" id="panel2-3">
     <ul>
-      <% @other_commits.each do |log| %>
-        <li><%= log.message %> <%= link_to "diff", repository_commit_diff_path(@repo,@commit.sha,log.sha) %></li>
+      <% @commit.other_commits.each do |log| %>
+        <li><%= log.message %> <%= link_to "diff", repository_commit_diff_path(repository,@commit.details.sha,log.sha) %></li>
       <% end %>
     </ul>
   </div>
   <div class="content" id="panel2-4">
-    <p>Fourth panel content goes here...</p>
+    <% if @commit.stats %>
+      <p><%= pie_chart ({"Insertions" => @commit.stats[:total][:insertions], "Deletions" => @commit.stats[:total][:deletions] }) %></p>
+     <% end %>
   </div>
 </div>
-
-
-
 
