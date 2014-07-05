@@ -18,7 +18,7 @@
   </div>
   <div class="content" id="panel2-2">
     <% if @commit.stats %>
-    Showing <%= @stats[:total][:files] %> changed file with <%= @stats[:total][:insertions] %> additions and <%= @stats[:total][:deletions] %> deletions. Show diff stats
+    Showing <%= @commit.stats[:total][:files] %> changed file with <%= @commit.stats[:total][:insertions] %> additions and <%= @commit.stats[:total][:deletions] %> deletions. Show diff stats
 
     <ul>
       <% @commit.stats[:files].each do |file| %>
@@ -36,7 +36,9 @@
     </ul>
   </div>
   <div class="content" id="panel2-4">
-    <p><%= pie_chart ({"Insertions" => @commit.stats[:total][:insertions], "Deletions" => @commit.stats[:total][:deletions] }) %></p>
+    <% if @commit.stats %>
+      <p><%= pie_chart ({"Insertions" => @commit.stats[:total][:insertions], "Deletions" => @commit.stats[:total][:deletions] }) %></p>
+     <% end %>
   </div>
 </div>
 

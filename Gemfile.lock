@@ -167,11 +167,8 @@ DEPENDENCIES
   capybara
   chartkick
   coffee-rails (~> 4.0.0)
-<<<<<<< HEAD
-  foundation-rails
-=======
   decent_exposure
->>>>>>> TestControllers + Refactor + GemChartKick
+  foundation-rails
   git
   jbuilder (~> 2.0)
   jquery-rails
